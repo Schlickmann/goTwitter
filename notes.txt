@@ -1,0 +1,105 @@
+Back-end
+- yarn init -y (is the same as npm init);
+--- package.json = dependencias, scripts (ex.: "start": "nodemon src/index.js" -> chama esse script ao iniciar.)
+
+Dependencies ----
+-> Express 
+---> micro framework permite fazer a parte de roteamento, views...
+
+-> Mongoose
+---> ORM biblioteca que facilita trabalhar com os dados do banco de dados utilizando sintaxe da linguagem utilizada (javascript)
+pode ser utilizado com diversos tipos de banco de dados.
+
+-> Nodemon (dependencia de desenvolvimento e nao de produção)
+---> Permite que a aplicação seja atualizada sem a necessidade de fechar o servidor a cada nova alteração.
+nodemon fica olhando os arquivos e quando tem alteraçao ele restarta o servidor automaticamente
+
+-> Socket.IO
+---> é usado para aplicações real time. 
+
+-> Cors
+---> é um módulo de segurança. informa para o backend se permitimos ou nao outras aplicações
+acessarem as informações da nossa aplicação backend.
+
+#### Usaram o serviço do site mlab para hospedar o banco de dados.
+
+Arquitetura MVC:
+Model = representam as entidades do banco de dados;
+View = aonde é exibido o resultado para o usuário
+Controllers = aonde as regras de negócios são executadas (ex.: enviar email, salvar no banco);
+
+Softwares Adicionais:
+--> Desenvolvimento de API rest
+-----> Insomnia : teste das rotas criadas
+--> New request: http://localhost:3000/tweets
+
+=====================================================
+Frontend
+
+- React-router-dom
+---> BrowserRouter : mostra o caminho na URL
+---> Switch : faz com que somente uma rota seja chamada por caminho
+---> Route : faz referencia as rotas
+
+- Imagens .svg
+---> https://tableless.com.br/imagens-em-alta-resolucao-utilizando-svg/
+
+- Axios
+---> Ajuda nas requisições HTTP a API Rest (backend)
+
+- Socket.IO-CLIENT
+---> faz com que o frontend seja atualizado automaticamente
+
+
+===============================================================
+Mobile
+
+React-native init (cbundler indentifier - PROBLEM)
+--> soluçao: 
+- Acessar > node_modules/react-native/scripts
+- rodar > ./ios-install-third-party.sh
+- rodar > ./ios-configure-glog.sh
+
+--React-navigation
+---> realiza a criação das rotas em RN
+-- createStackNavigator - navegação por abas
+-- createTabNavigator - por abas
+
+--react-native-vector-icons
+---> usar icones em react native
+---- react-material; fontAwesom....
+
+--react-native link nome da biblioteca => faz link da biblioteca dentro do react native para poder usar.
+-- instala lib nativa
+-- forma de usar: import Icon from 'react-native-vector-icons/FontAwesome';
+
+
+--Axios
+---> requisições HTTP
+
+--socket.io-client
+
+
+--React-native start --reset-cache (quando problema com o metro bundler)
+
+
+==================================
+Testes:
+
+- Node: mocha and chai (https://medium.com/@hdeodato/teste-autom%C3%A1tico-de-api-rest-usando-com-node-js-mocha-chai-6aec4613d100)
+-mocha roda os testes;
+- chai verifica se atinge as expectations
+
+react and RN: jest (https://jestjs.io/docs/en/tutorial-react) e https://jestjs.io/docs/en/tutorial-react-native
+
+===================================
+Deploy:
+
+node e react: pm2 (mantem um processo rodando, se quebrar reinicia processo;
+monitora aplicação e avisa de possiveis erros, monitora CPU e memoria a logs)
+enginex (faz proxy(redirecionamento) de portas, quando jogamos aplicacao para o servidor não é legal rodar direto na porta 80)
+
+graphQL (passa a responsabilidade de muita coisa feita no backend para o front)
+-permite que seja realizada varias chamadas a api numa mesma requisição
+
+apolo (cliente e servidor do graphql)
